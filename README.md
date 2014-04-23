@@ -7,7 +7,7 @@ Clone this repository:
 
 Install for Ubuntu
 ----------------------------
-`sudo apt-get install texlive-latex-base`
+`sudo apt-get install texlive-latex-base`<br />
 `sudo apt-get install texlive-latex-recommended`
 
 Bibliography
