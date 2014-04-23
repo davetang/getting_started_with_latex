@@ -5,6 +5,11 @@ Clone this repository:
 
 `https://github.com/davetang/getting_started_with_latex.git`
 
+Install for Ubuntu
+----------------------------
+`sudo apt-get install texlive-latex-base`
+`sudo apt-get install texlive-latex-recommended`
+
 Bibliography
 ----------------------------
 
