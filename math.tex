@@ -1,0 +1,53 @@
+\documentclass[a4paper, 12pt]{article}
+
+%for maths
+\usepackage{amsmath}
+
+%for hyperlinks
+\usepackage{hyperref}
+
+\begin{document}
+
+\section{Introduction}
+
+This document shows the examples from \href{http://davetang.org/muse/2013/02/27/using-latex-with-wordpress/}{my blog post}.
+
+\section{Displaying a vector}
+
+\subsection{A simple vector}
+
+\[
+\vec{x} = \begin{pmatrix}8\\6\\7\\5\\3\end{pmatrix}
+\]
+
+\subsection{Calculating vector length}
+
+\[
+!{\lvert}\vec{v}{\rvert} = \sqrt{ \sum_{i=1}^{n}{v_i^2} }
+\]
+
+\section{Displaying a matrix}
+
+\subsection{Matrix of numbers}
+
+\[
+\begin{bmatrix}
+17 & 18 & 5 & 5 & 45 & 1 \\
+42 & 28 & 30 & 15 & 115 & 3 \\
+10 & 10 & 10 & 21 & 51 & 2 \\
+28 & 5 & 65 & 39 & 132 & 5 \\
+24 & 26 & 45 & 21 & 116 & 4
+\end{bmatrix}
+\]
+
+\subsection{Matrix with subscripts and dots}
+
+\[
+A = \begin{bmatrix} a_{11} & \cdots & a_{1j} & \cdots & a_{1n} \\
+. && . && . \\
+a_{i1} & \cdots & a_{ij} & \cdots & a_{in} \\
+. && . && . \\
+a_{m1} & \cdots & a_{mj} & \cdots & a_{mn} \end{bmatrix}
+\]
+
+\end{document}
