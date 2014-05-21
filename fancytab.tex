@@ -1,0 +1,24 @@
+\documentclass{scrbook}
+\usepackage{scrpage2}
+\usepackage{fancytabs}
+\usepackage{lipsum}
+% Capture chapter head
+\let\oldchapter\chapter
+\newcommand\temphead{}
+\newcommand\chaphead{}
+\renewcommand\chapter[2][\temphead]{%
+\renewcommand\temphead{#2}%
+\renewcommand\chaphead{#2}%
+\oldchapter[#1]{#2}}
+% Set central right header to display tab
+% for both scrplain and scrheadings
+\cohead[\fancytab{\chaphead}{\thechapter}]
+{\fancytab{\chaphead}{\thechapter}}
+
+\renewcommand*{\chapterpagestyle}{scrplain}
+\pagestyle{scrheadings}
+\begin{document}
+\chapter{A chapter}
+\lipsum
+\lipsum
+\end{document}
