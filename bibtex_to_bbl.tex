@@ -1,0 +1,62 @@
+\documentclass[a4paper, 10pt]{article}
+
+% https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+\usepackage{listings}
+\lstset{language=TeX}
+
+% http://tex.stackexchange.com/questions/116534/lstlisting-line-wrapping
+\lstset{
+    frame=single,
+    breaklines=true,
+}
+
+\begin{document}
+\bibliographystyle{plain}
+
+\section{Purpose}
+
+Generate a .bbl file from a list of citations, so that references can be included within a document. Simply copy the reference list from the .bbl file that BibTeX generates and paste it into the main .tex file (and delete the associated \textbackslash{}bibliography and \textbackslash{}bibliographystyle commands).
+
+\section{Example}
+
+Once bibtex is run, the .bbl file will contain the following:
+
+\begin{lstlisting}
+\begin{thebibliography}{1}
+\bibitem{snpsift}
+P.~Cingolani, V.~M. Patel, M.~Coon, T.~Nguyen, S.~J. Land, D.~M. Ruden, and
+  X.~Lu.
+\newblock {{U}sing {D}rosophila melanogaster as a {M}odel for {G}enotoxic
+  {C}hemical {M}utational {S}tudies with a {N}ew {P}rogram, {S}np{S}ift}.
+\newblock {\em Front Genet}, 3:35, 2012.
+\end{thebibliography}
+\end{lstlisting}
+
+Simply copy and paste this code into the main document.
+
+\section{Citing bioinformatic tools}
+
+\begin{enumerate}
+
+   \item SnpSift\cite{snpsift}
+   \item BWA-MEM\cite{bwamem}
+   \item FastQC\cite{fastqc}
+   \item SAMtools and BCFtools\cite{samtools}
+   \item Trimmomatic\cite{trimmomatic}
+   \item bam.iobio\cite{bamiobio}
+
+\end{enumerate}
+
+We sequenced 10 samples on 10 lanes on an Illumina HiSeq 2000, aligned the resulting reads to the hg19 reference genome with BWA-MEM\cite{bwamem}, applied GATK\cite{pmid20644199} base quality score recalibration, indel realignment, duplicate removal, and performed SNP and INDEL discovery and genotyping across all 10 samples simulatenously using standard hard filtering parameters or variant quality score recalibration according to GATK Best Practices recommendations \cite{pmid21478889, pmid25431634}.
+
+\section{Other citations}
+
+\begin{enumerate}
+
+   \item GWAS on Australian aboriginal population \cite{pmid25760438}
+
+\end{enumerate}
+
+\bibliography{bibtex_to_bbl}
+
+\end{document}

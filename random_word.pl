@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 use strict;
 use warnings;
@@ -6,6 +6,7 @@ use warnings;
 my $usage = "Usage: $0 <number_of_word/s>\n";
 my $number = shift or die $usage;
 
+# this script only works when british-english exists
 my $dict = '/usr/share/dict/british-english';
 open(IN,'<',$dict) || die "Could not open $dict: $!\n";
 my @dict = <IN>;
