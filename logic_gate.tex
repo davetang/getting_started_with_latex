@@ -1,0 +1,102 @@
+\documentclass{article}
+
+\usepackage{circuitikz}
+\usepackage{listings}
+\usepackage[margin=0.5in]{geometry}
+
+\begin{document}
+
+\section{Logic gates}
+
+\subsection{AND}
+
+\begin{center} \begin{circuitikz} \draw
+  node[and port] (myand) {};
+\end{circuitikz} \end{center}
+
+\subsection{OR}
+
+\begin{center}\begin{circuitikz} \draw
+  node[or port] (myor) {};
+\end{circuitikz} \end{center}
+
+\subsection{NOT}
+
+\begin{center}\begin{circuitikz} \draw
+  node[not port] (mynot) {};
+\end{circuitikz} \end{center}
+
+\subsection{NAND}
+
+\begin{center}\begin{circuitikz} \draw
+  node[nand port] (mynand) {};
+\end{circuitikz} \end{center}
+
+\subsection{NOR}
+
+\begin{center}\begin{circuitikz} \draw
+  node[nor port] (mynor) {};
+\end{circuitikz} \end{center}
+
+\subsection{XOR}
+
+\begin{center}\begin{circuitikz} \draw
+  node[xor port] (myxor) {};
+\end{circuitikz} \end{center}
+
+\subsection{XNOR}
+
+\begin{center}\begin{circuitikz} \draw
+  node[xnor port] (myxnor) {};
+\end{circuitikz} \end{center}
+
+\subsection{Basics}
+
+Nodes must have curly brackets at the end, even when empty. An optional anchor (\#3) can be defined within round brackets to be addressed again later on.
+
+\begin{lstlisting}
+\draw (x1,y1) to[<circuit element like, R,L,C>, i=<value>,v=<value>,l=<label>,color=<color>]
+      (x2,y2) to[same as above]
+      (x3,y3) to[same as above]
+      ...
+      (xn,yn);
+\end{lstlisting}
+
+\subsection{Example 1}
+
+\begin{center} \begin{circuitikz} \draw
+
+  (0,2) node[and port] (myand1) {}
+  (0,0) node[and port] (myand2) {}
+  (2,1) node[xnor port] (myxnor) {}
+  (myand1.out) -| (myxnor.in 1)
+  (myand2.out) -| (myxnor.in 2);
+
+\end{circuitikz} \end{center}
+
+\subsection{Example 2}
+
+Use .in and .out to refer to the inputs and outputs of gates.
+
+\begin{center} \begin{circuitikz} \draw
+
+  (2,2) node[and port]  (and1) {}
+  (and1.in 1) node[]  (and1in1) {1}
+  (and1.in 2) node[]  (and1in2) {1}
+  (2,4) node[xnor port] (xnor1) {}
+  (xnor1.in 1) node[] (xnor1in1) {0}
+  (xnor1.in 2) node[] (xnor1in2) {0}
+  (3,2) node[not port]  (not1) {}
+  (3,4) node[not port]  (not2) {}
+  (6,3) node[nor port]  (nor1) {}
+  (nor1.out) node[]  (nor1out) {?}
+  % use |- for different connection style
+  (and1.out) -| (not1.in)
+  (xnor1.out) -| (not2.in)
+  (not1.out) -| (nor1.in 2)
+  (not2.out) -| (nor1.in 1);
+
+\end{circuitikz} \end{center}
+
+\end{document}
+
